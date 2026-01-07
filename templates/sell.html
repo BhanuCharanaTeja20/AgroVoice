@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sell Crops</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div id="google_translate_element"></div>
+    <div class="container">
+    <h2><i class="fa-solid fa-tractor"></i> Sell Your Crop</h2>
+
+    <form method="POST">
+        Crop Name:
+<input 
+  type="text" 
+  id="crop" 
+  name="crop" 
+  placeholder="Speak or type crop name">
+
+<button type="button" onclick="startVoice()">🎤</button>
+<br><br>
+        Quantity (kg):
+<input type="number" id="quantity" name="quantity">
+<button type="button" onclick="startVoiceQuantity()">🎤</button>
+<br><br>
+
+Price per kg:
+<input type="number" id="price" name="price">
+<button type="button" onclick="startVoicePrice()">🎤</button>
+<br><br>
+        <button type="submit">
+    <i class="fa-solid fa-upload"></i> Sell
+</button>
+    </form>
+    {% if message %}
+  <p id="successMessage" style="color: green; font-weight: bold; margin-top: 15px;">
+    {{ message }}
+  </p>
+{% endif %}
+
+    <br>
+    <a href="/">Back to Home</a>
+    </div>
+    <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {pageLanguage: 'en'},
+    'google_translate_element'
+  );
+}
+</script>
+
+<script type="text/javascript" 
+src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+<script>
+function startVoice() {
+
+  // Check if browser supports voice input
+  if (!('webkitSpeechRecognition' in window)) {
+    alert("Voice input not supported in this browser");
+    return;
+  }
+
+  // Create recognition object
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-IN";   // Indian English
+  recognition.start();
+
+  // When voice is recognized
+  recognition.onresult = function(event) {
+    document.getElementById("crop").value =
+      event.results[0][0].transcript;
+  };
+
+}
+</script>
+<script>
+window.onload = function () {
+  const msg = document.getElementById("successMessage");
+  if (!msg) return;
+
+  const utterance = new SpeechSynthesisUtterance(msg.innerText);
+  utterance.lang = "te-IN";
+
+  function loadVoices() {
+    const voices = window.speechSynthesis.getVoices();
+    const teluguVoice = voices.find(v => v.lang === "te-IN");
+
+    if (teluguVoice) {
+      utterance.voice = teluguVoice;
+    }
+
+    window.speechSynthesis.speak(utterance);
+  }
+
+  // Some browsers load voices asynchronously
+  if (speechSynthesis.getVoices().length === 0) {
+    speechSynthesis.onvoiceschanged = loadVoices;
+  } else {
+    loadVoices();
+  }
+};
+</script>
+<script>
+function startVoiceQuantity() {
+  if (!('webkitSpeechRecognition' in window)) {
+    alert("Voice input not supported");
+    return;
+  }
+
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-IN";
+  recognition.start();
+
+  recognition.onresult = function(event) {
+    const spoken = event.results[0][0].transcript;
+    document.getElementById("quantity").value =
+      spoken.replace(/[^0-9.]/g, "");
+  };
+}
+
+function startVoicePrice() {
+  if (!('webkitSpeechRecognition' in window)) {
+    alert("Voice input not supported");
+    return;
+  }
+
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-IN";
+  recognition.start();
+
+  recognition.onresult = function(event) {
+    const spoken = event.results[0][0].transcript;
+    document.getElementById("price").value =
+      spoken.replace(/[^0-9.]/g, "");
+  };
+}
+</script>
+<script>
+  window.onload = function () {
+    const msg = document.getElementById("successMessage");
+
+    if (msg) {
+      let text = msg.innerText;
+
+      let speech = new SpeechSynthesisUtterance(text);
+
+      // Telugu language
+      speech.lang = "te-IN";
+      speech.rate = 0.9;
+      speech.pitch = 1;
+
+      window.speechSynthesis.speak(speech);
+    }
+  };
+</script>
+</body>
+</html>

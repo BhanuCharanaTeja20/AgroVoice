@@ -1,0 +1,94 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f9f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 60%;
+    margin: auto;
+    margin-top: 50px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #2e7d32;
+}
+
+h2 {
+    color: #388e3c;
+}
+
+a {
+    display: inline-block;
+    margin: 10px 0;
+    text-decoration: none;
+    color: white;
+    background-color: #4caf50;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: #388e3c;
+}
+
+input, button {
+    padding: 8px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #388e3c;
+}
+#google_translate_element {
+    text-align: right;
+    margin-bottom: 15px;
+}
+.hero img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.tagline {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.actions a {
+    text-align: center;
+    font-size: 16px;
+}
+.top-bar {
+    width: 100%;
+    padding: 10px 20px;
+    text-align: right;
+}
+
+#google_translate_element {
+    display: inline-block;
+    z-index: 9999;
+}

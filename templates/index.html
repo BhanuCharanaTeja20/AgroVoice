@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AgroVoice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div style="width:100%; text-align:right; padding:10px;">
+    <div id="google_translate_element"></div>
+</div>
+
+<div class="container">
+
+    <div class="hero">
+        <img src="{{ url_for('static', filename='farm.jpg') }}" alt="Agriculture Image">
+    </div>
+
+    <h1><i class="fa-solid fa-seedling"></i> AgroVoice</h1>
+
+    <p class="tagline">
+        A smart agriculture platform helping farmers sell crops,
+        buy resources, and make better decisions.
+    </p>
+
+    <div class="actions">
+        <a href="/sell"><i class="fa-solid fa-wheat-awn"></i> Sell Crops</a>
+        <a href="/buy"><i class="fa-solid fa-cart-shopping"></i> Buy Resources</a>
+        <a href="/recommend"><i class="fa-solid fa-brain"></i> Smart Recommendation</a>
+        <a href="/markets">
+    <i class="fa-solid fa-map-location-dot"></i> Nearby Markets
+</a>
+    </div>
+
+</div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {pageLanguage: 'en'},
+    'google_translate_element'
+  );
+}
+</script>
+
+<script type="text/javascript" 
+src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
+</body>
+
+</html>

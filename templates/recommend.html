@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="google_translate_element"></div>
+    <div class="container">
+
+        <h2><i class="fa-solid fa-brain"></i> Smart Crop Recommendation</h2>
+
+        <!-- Form starts -->
+        <form method="POST">
+
+            <label>Season</label>
+            <select name="season">
+                <option>Kharif</option>
+                <option>Rabi</option>
+                <option>Summer</option>
+            </select>
+            <br><br>
+
+            <label>Soil Type</label>
+            <select name="soil">
+                <option>Black</option>
+                <option>Loamy</option>
+                <option>Sandy</option>
+            </select>
+            <br><br>
+
+            <button type="submit">
+                <i class="fa-solid fa-lightbulb"></i> Recommend Crops
+            </button>
+        </form>
+        <!-- Form ends -->
+
+        <!-- Result section -->
+        {% if crops %}
+            <h3>Recommended Crops:</h3>
+            <ul>
+                {% for crop in crops %}
+                    <li>{{ crop }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <a href="/">Back to Home</a>
+
+    </div>
+    <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {pageLanguage: 'en'},
+    'google_translate_element'
+  );
+}
+</script>
+
+<script type="text/javascript" 
+src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+</body>
+</html>

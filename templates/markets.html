@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nearby Markets</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+<div class="container">
+
+    <h2><i class="fa-solid fa-map-location-dot"></i> Nearby Agricultural Markets</h2>
+
+    <p>Find nearby mandis and agricultural markets to sell your crops.</p>
+
+    <!-- Google Maps Embed -->
+    <iframe
+        src="https://www.google.com/maps?q=agriculture+market+near+me&output=embed"
+        width="100%"
+        height="350"
+        style="border:0; border-radius:10px;"
+        allowfullscreen=""
+        loading="lazy">
+    </iframe>
+
+    <br><br>
+    <a href="/">Back to Home</a>
+
+</div>
+</body>
+</html>
