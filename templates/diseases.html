@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Crop Diseases</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>Select the Disease Image</h1>
+
+<div class="disease-grid">
+
+    <a href="/solution/tomato_early">
+        <img src="{{ url_for('static', filename='diseases/tomato_early_blight.jpg') }}">
+        <p>Tomato – Early Blight</p>
+    </a>
+
+    <a href="/solution/tomato_late">
+        <img src="{{ url_for('static', filename='diseases/tomato_late_blight.jpeg') }}">
+        <p>Tomato – Late Blight</p>
+    </a>
+
+    <a href="/solution/rice_brown">
+        <img src="{{ url_for('static', filename='diseases/rice_brown_spot.jpg') }}">
+        <p>Rice – Brown Spot</p>
+    </a>
+
+    <a href="/solution/rice_blast">
+        <img src="{{ url_for('static', filename='diseases/rice_leaf_blast.jpg') }}">
+        <p>Rice – Leaf Blast</p>
+    </a>
+
+</div>
+
+<!-- BACK BUTTON -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="/" style="
+        padding: 10px 20px;
+        background-color: #555;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+    ">
+        ← Back to Home
+    </a>
+</div>
+
+</body>
+</html>
